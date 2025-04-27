@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Team</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .equipos {
+            text-align: center;
+            padding: 20px;
+        }
+        .equipo {
+            background-color: #ddd;
+            padding: 20px;
+            margin: 10px auto;
+            border-radius: 5px;
+            border-left: 5px solid #333;
+            width: 80%;
+        }
+        form {
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #444;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Elige tu Equipo</h1>
+    </header>
+
+    <nav>
+        <a href="inicio.html">Inicio</a>
+        <a href="#equipos">Elegir Equipo</a>
+    </nav>
+
+    <section id="equipos" class="equipos">
+        <h2>Selecciona tu Equipo</h2>
+
+        <!-- Equipo DELTA -->
+        <div class="equipo">
+            <h3>Equipo DELTA</h3>
+            <p>El Equipo DELTA se especializa en operaciones de alto riesgo.</p>
+            <p>Introduce el código de acceso proporcionado:</p>
+            <form onsubmit="return validarCodigo(event, 'DELTA')">
+                <input type="text" id="codigo-delta" placeholder="Código de acceso" required>
+                <button type="submit">Unirse a DELTA</button>
+            </form>
+        </div>
+
+        <!-- Equipo SEAL -->
+        <div class="equipo">
+            <h3>Equipo SEAL</h3>
+            <p>El Equipo SEAL es experto en operaciones marítimas y rescates estratégicos.</p>
+            <p>Introduce el código de acceso proporcionado:</p>
+            <form onsubmit="return validarCodigo(event, 'SEAL')">
+                <input type="text" id="codigo-seal" placeholder="Código de acceso" required>
+                <button type="submit">Unirse a SEAL</button>
+            </form>
+        </div>
+
+        <!-- Equipo NAVY -->
+        <div class="equipo">
+            <h3>Equipo NAVY</h3>
+            <p>El Equipo NAVY lidera misiones internacionales y operaciones encubiertas.</p>
+            <p>Introduce el código de acceso proporcionado:</p>
+            <form onsubmit="return validarCodigo(event, 'NAVY')">
+                <input type="text" id="codigo-navy" placeholder="Código de acceso" required>
+                <button type="submit">Unirse a NAVY</button>
+            </form>
+        </div>
+
+        <p><a href="inicio.html">Volver al Inicio</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Tu Proyecto Militar</p>
+    </footer>
+
+    <script>
+        // Generar códigos únicos para cada equipo
+        const codigos = {
+            DELTA: generarCodigoAleatorio(),
+            SEAL: generarCodigoAleatorio(),
+            NAVY: generarCodigoAleatorio(),
+        };
+
+        console.log('Códigos generados:', codigos);
+
+        // Función para generar códigos aleatorios
+        function generarCodigoAleatorio() {
+            const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let codigo = '';
+            for (let i = 0; i < 8; i++) {
+                codigo += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+            }
+            return codigo;
+        }
+
+        // Validar el código ingresado
+        function validarCodigo(event, equipo) {
+            event.preventDefault(); // Evitar que el formulario se recargue
+            const inputId = `codigo-${equipo.toLowerCase()}`; // ID del campo de texto
+            const codigoIngresado = document.getElementById(inputId).value;
+
+            if (codigoIngresado === codigos[equipo]) {
+                alert(`¡Código válido! Bienvenido al equipo ${equipo}.`);
+                // Aquí puedes redirigir a la página del equipo si quieres
+            } else {
+                alert('Código inválido. Por favor, intenta nuevamente.');
+            }
+
+            return false; // Prevenir envío del formulario
+        }
+    </script>
+</body>
+</html>
