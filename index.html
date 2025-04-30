@@ -1,74 +1,162 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>U.S. ARMY</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: black;
+            color: white;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
         header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 15px 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: yellow;
         }
         nav {
-            background-color: #444;
-            color: white;
-            padding: 10px;
-            text-align: center;
+            display: flex;
+            gap: 20px;
         }
         nav a {
             color: white;
-            margin: 0 15px;
             text-decoration: none;
+            font-size: 18px;
         }
-        .inicio {
-            text-align: center;
-            padding: 20px;
+        nav a:hover {
+            color: yellow;
         }
-        .inicio img {
-            width: 90%;
-            max-width: 500px;
-            margin: 10px auto;
-            border-radius: 10px;
-            border: 5px solid #ddd;
+        .bookmark-icon {
+            width: 50px; /* Aumentado el tamaño del icono */
+            height: auto;
+            cursor: pointer;
+            margin-right: 30px; /* Mayor margen para mejor visibilidad */
         }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
+        .bookmark-panel {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background-color: rgba(20, 20, 20, 0.9);
             color: white;
-            position: relative;
+            padding: 20px;
+            transition: right 0.3s ease-in-out;
+        }
+        .bookmark-panel h2 {
+            color: yellow;
+        }
+        .close-panel {
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+        }
+        .gif-container img {
+            width: 45%;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+        .text-highlight {
+            color: yellow;
+            font-size: 36px;
+            margin: 20px 0;
+        }
+        .main-content button {
+            background-color: yellow;
+            color: black;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .main-content button:hover {
+            background-color: white;
+            color: black;
+        }
+        .final-gif-container img {
+            width: 70%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .final-text {
+            color: yellow;
+            font-size: 28px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Bienvenido a la Página Militar</h1>
+        <div class="logo">U.S. ARMY</div>
+        <nav>
+            <a href="#">EXPLORE</a>
+            <a href="#">ARMY LIFE</a>
+            <a href="#">CAREERS & JOBS</a>
+            <a href="#">BENEFITS</a>
+            <a href="#">HOW TO JOIN</a>
+        </nav>
+        <img src="https://designshack.net/images/ios-icons/black/ribbon.png" class="bookmark-icon" onclick="toggleBookmarkPanel()" alt="Bookmark Icon">
     </header>
 
-    <nav>
-        <a href="elegir-equipo.html">Choose Team</a>
-        <a href="team-information.html">Team Information</a>
-    </nav>
+    <div class="bookmark-panel" id="bookmarkPanel">
+        <h2>MY JOBS</h2>
+        <button class="close-panel" onclick="toggleBookmarkPanel()">Close Panel</button>
+    </div>
 
-    <section class="inicio">
-        <h2>Imágenes Militares</h2>
-        <img src="https://special-ops.org/wp-content/uploads/2013/03/1st-sfod-d.jpg" alt="Imagen militar 1">
-        <img src="https://th.bing.com/th/id/OIP.aIm1BXoW_PU3kc9EcvFGrgHaE5?rs=1&pid=ImgDetMain" alt="Imagen militar 2">
-        <img src="https://cdn.history.com/sites/2/2017/01/list-seal-missions-navy-seal-photos-beach-assualt-1708498496-O.jpg" alt="Imagen militar 3">
+    <section class="main-content">
+        <div class="gif-container">
+            <img src="https://media.giphy.com/media/MY5sORdRM0yCf7gkjw/giphy.gif" alt="U.S. Army GIF">
+            <img src="https://media.tenor.com/Fpp89ARNMKcAAAAC/army.gif" alt="Army GIF">
+            <img src="https://th.bing.com/th/id/R.e3eb9f741cdce5b2b0b945a25e9615f6?rik=zvlOQswlhOZoOg&riu=http%3a%2f%2fbestanimations.com%2fMilitary%2fsoldier-army-military-animated-gif-27.gif&ehk=8z%2baj544RjRtO69Kd%2bcMPLhI4cQZnHn7VA22CavLRa8%3d&risl=&pid=ImgRaw&r=0" alt="Soldier GIF">
+            <img src="https://c.tenor.com/YuKJ6iQq7jgAAAAM/military.gif" alt="Military GIF">
+        </div>
+        
+        <h1 class="text-highlight">BE ALL YOU CAN BE</h1>
+        <button onclick="alert('Taking the first step!')">TAKE THE FIRST STEP</button>
+
+        <div class="final-gif-container">
+            <img src="https://media.tenor.com/X58-jc-_qBcAAAAM/military.gif" alt="Military Defender GIF">
+        </div>
+        <h2 class="final-text">
+            BE A DEFENDER.<br>
+            SOLVER.<br>
+            HEALER.<br>
+            PLANNER.<br>
+            CONNECTOR.<br>
+            SOLDIER.
+        </h2>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Tu Proyecto Militar</p>
-    </footer>
+    <script>
+        function toggleBookmarkPanel() {
+            const panel = document.getElementById('bookmarkPanel');
+            panel.style.right = panel.style.right === '0px' ? '-300px' : '0px';
+        }
+    </script>
 </body>
 </html>
-
 
